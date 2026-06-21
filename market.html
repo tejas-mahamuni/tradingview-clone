@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+
+  <nav id="main-navbar" class="sticky-nav">
+    <button class="menu-toggle" aria-label="Toggle Navigation"
+      onclick="document.querySelector('.menu-container').classList.toggle('active')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="logo">
+      <img class="favicon" src="./assets/img/logo.svg" alt="" />
+      <img class="logo-name" src="./assets/img/logo_tv.svg" alt="" />
+    </div>
+
+    <div class="menu-container">
+      <div class="menu">
+        <ul>
+          <button class="search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M17.41 18.47a8.18 8.18 0 1 1 1.06-1.06L24 22.94 22.94 24zm1.45-6.29a6.68 6.68 0 1 1-13.36 0 6.68 6.68 0 0 1 13.36 0">
+              </path>
+            </svg>
+            <span class="srh">Search (Ctrl+K)</span>
+          </button>
+          <li><a href="./product.html">Products</a></li>
+          <li><a href="./market.html">Market</a></li>
+          <li><a href="./community.html">Community</a></li>
+          <li><a href="./broker.html">Brokers</a></li>
+          <li><a href="./more.html">More</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="globe" translate="no">
+        <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" style="color: white">
+          <path fill-rule="evenodd"
+            d="M12.1 4.69a9.54 9.54 0 0 1 3.8 0c.52 1.13.95 2.65 1.23 4.42a12.5 12.5 0 0 1-6.26 0c.28-1.77.71-3.29 1.23-4.42Zm-1.84.57a9.52 9.52 0 0 0-3.04 2.08c.63.51 1.38.95 2.2 1.3.22-1.25.5-2.39.84-3.38Zm-1.05 4.9c-1.1-.42-2.1-.98-2.95-1.67a9.46 9.46 0 0 0 0 11.03c.86-.68 1.86-1.24 2.96-1.66a33.91 33.91 0 0 1 0-7.7Zm.22 9.23c-.82.34-1.56.78-2.2 1.28a9.52 9.52 0 0 0 3.03 2.07 21.2 21.2 0 0 1-.83-3.35Zm2.67 3.92a17.46 17.46 0 0 1-1.23-4.4 12.2 12.2 0 0 1 6.26 0 17.46 17.46 0 0 1-1.23 4.4 9.54 9.54 0 0 1-3.8 0Zm5.64-.57a9.52 9.52 0 0 0 3.03-2.07 9.62 9.62 0 0 0-2.2-1.28 21.2 21.2 0 0 1-.83 3.35Zm1.04-4.88c1.1.42 2.1.98 2.95 1.66a9.46 9.46 0 0 0 .01-11.03c-.85.7-1.85 1.25-2.95 1.67a33.93 33.93 0 0 1 0 7.7Zm-1.45-7.25a14.06 14.06 0 0 1-6.66 0 32.64 32.64 0 0 0 0 6.8 13.74 13.74 0 0 1 6.66 0 32.62 32.62 0 0 0 0-6.8Zm1.24-1.98a9.1 9.1 0 0 0 2.2-1.29 9.52 9.52 0 0 0-3.03-2.08c.34 1 .62 2.13.83 3.37ZM14 3a11 11 0 1 0 0 22 11 11 0 0 0 0-22Z"
+            fill="currentColor"></path>
+        </svg>
+        EN
+      </button>
+      <button aria-haspopup="true" aria-expanded="false" aria-label="Open user menu" type="button" class="user">
+        <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M17.5 9c0 1.14-.3 1.99-.79 2.54-.46.52-1.27.96-2.71.96s-2.25-.44-2.71-.96A3.74 3.74 0 0 1 10.5 9c0-1.14.3-1.99.79-2.54.46-.52 1.27-.96 2.71-.96s2.25.44 2.71.96c.5.55.79 1.4.79 2.54zM19 9c0 2.76-1.45 5-5 5s-5-2.24-5-5 1.45-5 5-5 5 2.24 5 5zm-8 8.5h6c2.04 0 3.1.5 3.76 1.1.69.63 1.11 1.55 1.5 2.8.13.42.04.95-.29 1.4-.33.46-.8.7-1.22.7H7.25c-.43 0-.89-.24-1.22-.7a1.61 1.61 0 0 1-.3-1.4 6.08 6.08 0 0 1 1.51-2.8c.65-.6 1.72-1.1 3.76-1.1zm6-1.5h-6c-4.6 0-5.88 2.33-6.7 4.96-.58 1.89.97 4.04 2.95 4.04h13.5c1.98 0 3.53-2.15 2.95-4.04C22.88 18.33 21.6 16 17 16z"
+            fill="currentColor"></path>
+        </svg>
+      </button>
+      <button class="get_started"><a href="index.html">Get Started</a></button>
+    </div>
+  </nav>
+
+  <div class="community-page-container">
+
+    <div class="container-fluid text-center header-hero-section mt-5">
+      <h1 class="display-4 text-dark d-inline-flex align-items-center gap-2 cursor-pointer markets-toggle-heading"
+        data-bs-toggle="modal" data-bs-target="#countrySelectModal" style="font-weight: 800; letter-spacing: -1px;">
+        <span id="selected-market-title">Markets Everywhere</span>
+        <span class="custom-caret"></span>
+      </h1>
+    </div>
+
+    <div class="container-fluid px-4 mt-4">
+      <div class="row mx-3">
+        <div class="col-12 p-0">
+          <h2 class="title fw-bold text-dark d-inline-flex align-items-center gap-1 cursor-pointer indices-heading">
+            Indices&gt;
+          </h2>
+        </div>
+      </div>
+
+      <div class="row gx-4 flex-nowrap overflow-x-auto mt-3 pb-2 custom-ipo-scrollbar align-items-center">
+
+        <div class="col-auto ipo-card-width">
+          <div
+            class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger active-index-capsule"
+            data-symbol="SPY">
+            <div
+              class="index-logo bg-danger d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 32px; height: 38px; font-size: 0.7rem; background-color: #d11429 !important;">
+              500
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">S&P 500</div>
+              <div class="fw-bold text-dark price-text">
+                7,555.77 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+1.67%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="NDAQ">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 32px; height: 38px; font-size: 0.7rem; background-color: #0084b4;">
+              100
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small d-flex align-items-center gap-1">
+                Nasdaq 100 <span class="text-warning font-tiny fw-bold">D</span>
+              </div>
+              <div class="fw-bold text-dark price-text">
+                30,401.38 <span class="text-muted fw-normal font-tiny">POINT</span>
+                <span class="text-success ms-2 font-tiny">+2.58%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="DIA">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 32px; height: 38px; font-size: 0.75rem; background-color: #0099e5;">
+              30
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">Dow 30</div>
+              <div class="fw-bold text-dark price-text">
+                51,846.22 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+1.26%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="IWM">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 32px; height: 38px; font-size: 0.65rem; background-color: #4a154b;">
+              2000
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">US 2000 small cap</div>
+              <div class="fw-bold text-dark price-text">
+                2,970.750 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+0.75%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row mx-2 my-4 mb-5">
+        <div class="col-12 p-0 border rounded-4 overflow-hidden bg-white shadow-sm" style="height: 500px;">
+          <div id="tradingview-chart-wrapper" style="height: 100%; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid px-4">
+      <div class="row mx-3">
+        <div class="col-12 p-0">
+          <h4 class="title fw-bold text-dark gap-1 cursor-pointer indices-heading">
+            World Indices&gt;
+          </h4>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-5 gx-4 gy-3 mt-2 mx-2 flex-nowrap overflow-x-auto custom-ipo-scrollbar">
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.8rem;">225</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">NI225</p>
+                <span class="text-muted small">Japan 225 Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">69,124 <span class="text-muted small fw-normal">JPY</span></div>
+            <span class="text-success fw-bold small">+4.99%</span>
+          </div>
+        </div>
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.8rem;">100</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">UKX</p>
+                <span class="text-muted small">FTSE 100 Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">10,124 <span class="text-muted small fw-normal">POINT</span></div>
+            <span class="text-danger fw-bold small">-0.39%</span>
+          </div>
+        </div>
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.8rem;">X</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">DAX</p>
+                <span class="text-muted small">DAX Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">24,124 <span class="text-muted small fw-normal">POINT</span></div>
+            <span class="text-success fw-bold small">+1.05%</span>
+          </div>
+        </div>
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.8rem;">PX1</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">PX1</p>
+                <span class="text-muted small">CAC 40 Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">8,124 <span class="text-muted small fw-normal">POINT</span></div>
+            <span class="text-success fw-bold small">+0.40%</span>
+          </div>
+        </div>
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.75rem;">FT</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">FTMIB</p>
+                <span class="text-muted small">Milano Italia Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">51,124 <span class="text-muted small fw-normal">EURO</span></div>
+            <span class="text-success fw-bold small">+0.66%</span>
+          </div>
+        </div>
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.75rem;">IBC</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">IBC</p>
+                <span class="text-muted small">IBEX 35 Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">51,124 <span class="text-muted small fw-normal">EURO</span></div>
+            <span class="text-success fw-bold small">+0.66%</span>
+          </div>
+        </div>
+
+        <div class="col col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4 bg-white shadow-sm">
+            <div class="d-flex gap-3">
+              <div class="d-flex text-light align-items-center justify-content-center bg-primary rounded-circle fw-bold"
+                style="width: 36px; height: 36px; font-size: 0.7rem;">50</div>
+              <div>
+                <p class="fw-bolder mb-0 text-dark">NIFTY</p>
+                <span class="text-muted small">Nifty 50 Index</span>
+              </div>
+            </div>
+            <div class="mt-2 fw-bold text-dark">23,124 <span class="text-muted small fw-normal">INR</span></div>
+            <span class="text-success fw-bold small">+0.66%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid px-4 mt-5">
+      <div class="row mx-3">
+        <div class="col-12 d-flex align-items-center gap-3 p-0">
+          <img src="./assets/img/s3.png" class="rounded-circle" style="width: 36px; height: 36px; object-fit: cover;"
+            alt="US Stocks Icon" />
+          <h2 class="title fw-bold text-dark m-0" style="font-weight: 800; letter-spacing: -0.5px;">US Stocks&gt;</h2>
+        </div>
+      </div>
+
+      <div class="row gx-4 flex-nowrap overflow-x-auto mt-3 pb-2 custom-ipo-scrollbar align-items-center">
+
+        <div class="col-auto ipo-card-width">
+          <div
+            class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger active-index-capsule"
+            data-symbol="AAPL">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 38px; height: 38px; font-size: 0.85rem; background-color: #000000;">
+              AAPL
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">Apple, Inc.</div>
+              <div class="fw-bold text-dark price-text">
+                182.41 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-danger ms-2 font-tiny">-2.11%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="TSLA">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 38px; height: 38px; font-weight: 900; font-size: 0.9rem; background-color: #e01e37;">
+              T
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">Tesla, Inc.</div>
+              <div class="fw-bold text-dark price-text">
+                406.43 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+1.82%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="NVDA">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 38px; height: 38px; font-weight: 900; font-size: 0.9rem; background-color: #76b900;">
+              N
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">NVIDIA Corp.</div>
+              <div class="fw-bold text-dark price-text">
+                205.19 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+0.16%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="MSFT">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 38px; height: 38px; font-weight: 900; font-size: 0.9rem; background-color: #00a4ef;">
+              M
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">Microsoft Corp.</div>
+              <div class="fw-bold text-dark price-text">
+                324.74 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+1.05%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="MU">
+            <div class="index-logo d-flex align-items-center justify-content-center text-white fw-bold rounded-circle"
+              style="width: 38px; height: 38px; font-weight: 900; font-size: 0.9rem; background-color: #004b87;">
+              μ
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">Micron Tech.</div>
+              <div class="fw-bold text-dark price-text">
+                981.61 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-danger ms-2 font-tiny">-1.43%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto ipo-card-width">
+          <div class="p-3 rounded-pill market-item d-flex align-items-center gap-3 index-card-trigger index-capsule"
+            data-symbol="AMZN">
+            <div class="index-logo d-flex align-items-center justify-content-center text-dark fw-bold rounded-circle"
+              style="width: 38px; height: 38px; font-weight: 900; font-size: 0.9rem; background-color: #ff9900;">
+              a
+            </div>
+            <div class="lh-sm">
+              <div class="fw-bold text-dark font-small">Amazon.com, Inc.</div>
+              <div class="fw-bold text-dark price-text">
+                178.15 <span class="text-muted fw-normal font-tiny">USD</span>
+                <span class="text-success ms-2 font-tiny">+0.88%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row mx-2 my-4 mb-5">
+        <div class="col-12 p-0 border rounded-4 overflow-hidden bg-white shadow-sm" style="height: 600px;">
+          <div id="tradingview-chart1-wrapper" style="height: 100%; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal fade" id="countrySelectModal" tabindex="-1" aria-labelledby="countrySelectModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow rounded-4 p-2">
+
+        <div class="modal-header border-0 pb-0 position-relative">
+          <h5 class="modal-title fw-bold text-dark fs-4" id="countrySelectModalLabel">Select country</h5>
+          <button type="button" class="btn-close shadow-none position-absolute end-0 top-0 m-3" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+
+        <div class="px-3 pt-2">
+          <div class="input-group border rounded-3 overflow-hidden bg-light p-1 search-input-wrapper">
+            <span class="input-group-text bg-transparent border-0 pe-1 text-muted">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </span>
+            <input type="text" id="modal-country-search"
+              class="form-control border-0 bg-transparent ps-1 fs-6 shadow-none" placeholder="Search"
+              autocomplete="off">
+          </div>
+        </div>
+
+        <div class="modal-body custom-modal-scroll mt-2" style="max-height: 500px; overflow-y: auto;">
+          <div class="mb-3">
+            <div class="country-item active-market d-flex align-items-center gap-2 p-2.5 rounded-3 font-small"
+              data-country="Everywhere">
+              <span class="fs-5">🌐</span>
+              <span>Entire world</span>
+            </div>
+          </div>
+
+          <div class="region-block" data-region="North America">
+            <div class="text-muted fw-bold font-tiny tracking-wide mb-2 text-uppercase">North America</div>
+            <div class="row row-cols-2 g-2 mb-4">
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="USA">🇺🇸 USA
+                </div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Canada">🇨🇦
+                  Canada</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="region-block" data-region="Europe">
+            <div class="text-muted fw-bold font-tiny tracking-wide mb-2 text-uppercase">Europe</div>
+            <div class="row row-cols-2 g-2 mb-2">
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Austria">🇦🇹
+                  Austria</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Italy">🇮🇹 Italy
+                </div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Belgium">🇧🇪
+                  Belgium</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Lithuania">🇱🇹
+                  Lithuania</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Bulgaria">🇧🇬
+                  Bulgaria</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Latvia">🇱🇻
+                  Latvia</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Switzerland">🇨🇭
+                  Switzerland</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Luxembourg">🇱🇺
+                  Luxembourg</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Croatia">🇭🇷
+                  Croatia</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Netherlands">🇳🇱
+                  Netherlands</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Cyprus">🇨🇾
+                  Cyprus</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Norway">🇳🇴
+                  Norway</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Czech Republic">
+                  🇨🇿 Czech Republic</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Poland">🇵🇱
+                  Poland</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Germany">🇩🇪
+                  Germany</div>
+              </div>
+              <div class="col">
+                <div class="country-item d-flex align-items-center gap-2 p-2 rounded-2" data-country="Portugal">🇵🇹
+                  Portugal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer border-top text-dark mt-5">
+    <div class="container-fluid">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 gx-5 gy-5 m-3
+        ">
+
+        <div class="col">
+          <div class="mb-3">
+            <svg width="36" height="28" viewBox="0 0 36 28" xmlns="http://www.w3.org/2000/svg" style="color: black;">
+              <path d="M14 22H7V11H0V4h14v18zM28 22h-8l7.5-18h8L28 22z" fill="currentColor"></path>
+              <circle cx="20" cy="8" r="4" fill="currentColor"></circle>
+            </svg>
+            <svg width="147" height="28" viewBox="0 0 147 28" xmlns="http://www.w3.org/2000/svg" style="color: black;">
+              <path
+                d="M4.793 22.024h3.702V7.519h4.843V4.02H0v3.5h4.793v14.504zM13.343 22.024h3.474v-6.06c0-2.105 1.09-3.373 2.74-3.373.582 0 1.039.101 1.571.279V9.345a3.886 3.886 0 00-1.166-.152c-1.42 0-2.713.938-3.145 2.18V9.346h-3.474v12.679zM27.796 22.303c1.75 0 3.068-.888 3.652-1.7v1.42h3.474V9.346h-3.474v1.42c-.584-.811-1.902-1.699-3.652-1.699-3.372 0-5.959 3.043-5.959 6.618 0 3.576 2.587 6.619 5.96 6.619zm.736-3.17c-1.928 0-3.196-1.445-3.196-3.448 0-2.004 1.268-3.45 3.196-3.45 1.927 0 3.195 1.446 3.195 3.45 0 2.003-1.268 3.448-3.195 3.448zM43.193 22.303c1.75 0 3.068-.888 3.651-1.7v1.42h3.474V3.007h-3.474v7.76c-.583-.812-1.901-1.7-3.651-1.7-3.373 0-5.96 3.043-5.96 6.618 0 3.576 2.587 6.619 5.96 6.619zm.735-3.17c-1.927 0-3.195-1.445-3.195-3.448 0-2.004 1.268-3.45 3.195-3.45 1.927 0 3.195 1.446 3.195 3.45 0 2.003-1.268 3.448-3.195 3.448zM55.166 7.412a2.213 2.213 0 002.232-2.206A2.213 2.213 0 0055.166 3a2.224 2.224 0 00-2.206 2.206 2.224 2.224 0 002.206 2.206zm-1.724 14.612h3.474V9.49h-3.474v12.533zM59.998 22.024h3.474v-6.187c0-2.435 1.192-3.601 2.815-3.601 1.445 0 2.232 1.116 2.232 2.941v6.847h3.474v-7.43c0-3.296-1.826-5.528-4.894-5.528-1.649 0-2.942.71-3.627 1.724V9.345h-3.474v12.679zM80.833 18.65c-1.75 0-3.22-1.319-3.22-3.246 0-1.952 1.47-3.246 3.22-3.246 1.75 0 3.22 1.294 3.22 3.246 0 1.927-1.47 3.246-3.22 3.246zm-.406 8.85c3.88 0 6.822-1.978 6.822-6.543V9.268h-3.474v1.42C83.09 9.7 81.72 8.99 80.098 8.99c-3.322 0-5.985 2.84-5.985 6.415 0 3.55 2.663 6.39 5.985 6.39 1.623 0 2.992-.735 3.677-1.673v.862c0 2.029-1.344 3.474-3.398 3.474-1.42 0-2.84-.482-3.956-1.572l-1.902 2.586c1.445 1.395 3.702 2.029 5.908 2.029zM94.594 22.024h3.27L105.32 4.02h-4.057l-5.021 12.501L91.145 4.02h-3.981l7.43 18.004zM108.508 7.266a2.213 2.213 0 002.231-2.206 2.213 2.213 0 00-2.231-2.206c-1.192 0-2.207.988-2.207 2.206 0 1.217 1.015 2.206 2.207 2.206zm-1.725 14.758h3.474V9.345h-3.474v12.679zM119.248 22.303c2.662 0 4.691-1.116 5.883-2.84l-2.587-1.927c-.583.887-1.673 1.597-3.271 1.597-1.673 0-3.169-.938-3.372-2.637h9.483c.076-.533.051-.888.051-1.192 0-4.133-2.916-6.238-6.238-6.238-3.854 0-6.669 2.865-6.669 6.618 0 4.007 2.942 6.619 6.72 6.619zm-3.221-8.165c.33-1.547 1.775-2.207 3.069-2.207 1.293 0 2.561.685 2.865 2.207h-5.934zM138.45 22.024h3.449l4.184-12.679h-3.728l-2.383 8.114-2.587-8.114h-2.662l-2.561 8.114-2.409-8.114h-3.703l4.21 12.679h3.448l2.359-7.202 2.383 7.202z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/instagram-logo-facebook-2-svgrepo-com.svg" style="width: 24px; height: 24px;" alt="">
+            </div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/icons8-x-50.png" style="width: 24px; height: 24px;" alt=""></div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/facebook-svgrepo-com.svg" style="width: 24px; height: 24px;" alt=""></div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/youtube-168-svgrepo-com.svg" style="width: 24px; height: 24px;" alt=""></div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/linkedin-svgrepo-com.svg" style="width: 24px; height: 24px;" alt=""></div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/telegram-svgrepo-com.svg" style="width: 24px; height: 24px;" alt=""></div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/tiktok-svgrepo-com.svg" style="width: 24px; height: 24px;" alt=""></div>
+            <div style="width: 40px; height: 40px;"
+              class="market-item d-flex align-items-center justify-content-center"><img
+                src="./assets/img/discord-svgrepo-com.svg" style="width: 24px; height: 24px;" alt=""></div>
+          </div>
+
+          <div style="width: 150px;" class="mt-2 mb-3">
+            <select class="form-select border-0 bg-light" aria-label="Language Select">
+              <option selected>English</option>
+              <option value="1">Spanish</option>
+              <option value="2">Hindi</option>
+              <option value="3">Urdu</option>
+            </select>
+          </div>
+
+          <div class="legal-attribution-text text-muted" style="font-size: 11px; line-height: 1.5;">
+            <p class="mb-2">Select market data provided by <span class="text-primary cursor-pointer">ICE Data
+                Services.</span></p>
+            <p class="mb-2">Select reference data provided by FactSet. Copyright © 2026 FactSet Research Systems Inc.
+            </p>
+            <p class="mb-2">Copyright © 2026, American Bankers Association. CUSIP Database provided by FactSet Research
+              Systems Inc. All rights reserved.</p>
+            <p class="mb-2">SEC filings and other documents provided by <span
+                class="text-primary cursor-pointer">Quartr.</span></p>
+            <p class="m-0">© 2026 TradingView, Inc.</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px;">
+            <div><span class="text-muted">MORE THAN A PRODUCT</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Supercharts</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">SCREENERS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Stocks</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">ETFs</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Bonds</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Cryptocoins</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">CEX Pair</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">DEX Pair</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Pine</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">HEATMAPS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Stocks</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">ETFs</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Cryptocoins</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">CALENDARS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Economic</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Earnings</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Dividend</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">MORE PRODUCTS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Yield Curves</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Option</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Macro Maps</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">News Flow</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Pine Script</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">APPS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Mobile</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Desktop</h6>
+              </a></div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px;">
+            <div><span class="text-muted">TOOLS & SUBSCRIPTIONS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Features</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Pricing</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Market data</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Gift plans</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">TRADING</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Overview</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Top brokers</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Brokers comparison</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">SPECIAL OFFERS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">CME Group futures</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Eurex futures</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">US stocks bundle</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">ABOUT COMPANY</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Who we are</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Space mission</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Blog</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Careers</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Media kit</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">MERCH</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">TradingView store</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Tarot cards for traders</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">The C63 TradeTime</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">POLICIES & SECURITY</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Terms of Use</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Disclaimer</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Privacy Policy</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Cookies Policy</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Accessibility Statement</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Security tips</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Bug Bounty program</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Status page</h6>
+              </a></div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px;">
+            <div><span class="text-muted">COMMUNITY</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Social network</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Wall of Love</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Refer a friend</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">House Rules</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Moderators</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">IDEAS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Trading</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Education</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Editors' picks</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">PINE SCRIPT</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Indicators & strategies</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Wizards</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Freelancers</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Paid Spaces</h6>
+              </a></div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px;">
+            <div><span class="text-muted">BUSINESS SOLUTIONS</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Widgets</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Charting libraries</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Lightweight Charts™</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Advanced Charts</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Trading Platform</h6>
+              </a></div>
+          </div>
+          <div class="mt-4" style="font-size: 12px;">
+            <div><span class="text-muted">GROWTH OPPORTUNITIES</span></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Advertising</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Brokerage integration</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Partner program</h6>
+              </a></div>
+            <div class="mt-1"><a href="#" class="market-item">
+                <h6 class="m-0">Education program</h6>
+              </a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div><img class="w-100 mt-5" src="./assets/img/look-first-light.74b5bba06f657157cdb4.svg" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="./js/market.js"></script>
+</body>
+
+</html>

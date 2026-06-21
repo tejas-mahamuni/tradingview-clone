@@ -1,0 +1,3775 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading View Clone</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <div class="main">
+    <nav id="main-navbar">
+      <button class="menu-toggle" aria-label="Toggle Navigation" onclick="
+            document.querySelector('.menu-container').classList.toggle('active')
+          ">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="logo">
+        <img class="favicon" src="./assets/img/logo.svg" alt="" />
+        <img class="logo-name" src="./assets/img/logo_tv.svg" alt="" />
+      </div>
+
+      <div class="menu-container">
+        <div class="menu">
+          <ul>
+            <button class="search" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M17.41 18.47a8.18 8.18 0 1 1 1.06-1.06L24 22.94 22.94 24zm1.45-6.29a6.68 6.68 0 1 1-13.36 0 6.68 6.68 0 0 1 13.36 0">
+                </path>
+              </svg>
+              <span class="srh">Search (Ctrl+K)</span>
+            </button>
+            <li><a href="./product.html">Products</a></li>
+            <li><a href="./market.html">Market</a></li>
+            <li><a href="./community.html">Community</a></li>
+            <li><a href="./broker.html">Brokers</a></li>
+            <li><a href="./more.html">More</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="button" class="globe" translate="no">
+          <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" style="color: white">
+            <path fill-rule="evenodd"
+              d="M12.1 4.69a9.54 9.54 0 0 1 3.8 0c.52 1.13.95 2.65 1.23 4.42a12.5 12.5 0 0 1-6.26 0c.28-1.77.71-3.29 1.23-4.42Zm-1.84.57a9.52 9.52 0 0 0-3.04 2.08c.63.51 1.38.95 2.2 1.3.22-1.25.5-2.39.84-3.38Zm-1.05 4.9c-1.1-.42-2.1-.98-2.95-1.67a9.46 9.46 0 0 0 0 11.03c.86-.68 1.86-1.24 2.96-1.66a33.91 33.91 0 0 1 0-7.7Zm.22 9.23c-.82.34-1.56.78-2.2 1.28a9.52 9.52 0 0 0 3.03 2.07 21.2 21.2 0 0 1-.83-3.35Zm2.67 3.92a17.46 17.46 0 0 1-1.23-4.4 12.2 12.2 0 0 1 6.26 0 17.46 17.46 0 0 1-1.23 4.4 9.54 9.54 0 0 1-3.8 0Zm5.64-.57a9.52 9.52 0 0 0 3.03-2.07 9.62 9.62 0 0 0-2.2-1.28 21.2 21.2 0 0 1-.83 3.35Zm1.04-4.88c1.1.42 2.1.98 2.95 1.66a9.46 9.46 0 0 0 .01-11.03c-.85.7-1.85 1.25-2.95 1.67a33.93 33.93 0 0 1 0 7.7Zm-1.45-7.25a14.06 14.06 0 0 1-6.66 0 32.64 32.64 0 0 0 0 6.8 13.74 13.74 0 0 1 6.66 0 32.62 32.62 0 0 0 0-6.8Zm1.24-1.98a9.1 9.1 0 0 0 2.2-1.29 9.52 9.52 0 0 0-3.03-2.08c.34 1 .62 2.13.83 3.37ZM14 3a11 11 0 1 0 0 22 11 11 0 0 0 0-22Z"
+              fill="currentColor"></path>
+          </svg>
+          EN
+        </button>
+        <button aria-haspopup="true" aria-expanded="false" aria-label="Open user menu" type="button" class="user">
+          <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M17.5 9c0 1.14-.3 1.99-.79 2.54-.46.52-1.27.96-2.71.96s-2.25-.44-2.71-.96A3.74 3.74 0 0 1 10.5 9c0-1.14.3-1.99.79-2.54.46-.52 1.27-.96 2.71-.96s2.25.44 2.71.96c.5.55.79 1.4.79 2.54zM19 9c0 2.76-1.45 5-5 5s-5-2.24-5-5 1.45-5 5-5 5 2.24 5 5zm-8 8.5h6c2.04 0 3.1.5 3.76 1.1.69.63 1.11 1.55 1.5 2.8.13.42.04.95-.29 1.4-.33.46-.8.7-1.22.7H7.25c-.43 0-.89-.24-1.22-.7a1.61 1.61 0 0 1-.3-1.4 6.08 6.08 0 0 1 1.51-2.8c.65-.6 1.72-1.1 3.76-1.1zm6-1.5h-6c-4.6 0-5.88 2.33-6.7 4.96-.58 1.89.97 4.04 2.95 4.04h13.5c1.98 0 3.53-2.15 2.95-4.04C22.88 18.33 21.6 16 17 16z"
+              fill="currentColor"></path>
+          </svg>
+        </button>
+        <button class="get_started"><a href="index.html">Get Started</a></button>
+      </div>
+    </nav>
+
+    <div class="hero-container">
+      <h1>Look first/Then Leap.</h1>
+      <h3>The best trades require research, then commitment.</h3>
+      <div class="btn">
+        <button>Get Started for free</button>
+      </div>
+      <p>$0 forever, no credit card needed</p>
+    </div>
+
+    <div class="container profile-card">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <img src="./assets/img/profile-dp.jpg" alt="" />
+        </div>
+        <div class="col">
+          <div class="profile-info">
+            <h4>Scott "Kidd" Poteet</h4>
+            <p>Polaris Dawn astronaut</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <div class="btn">
+            <button class="mission-btn">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg>
+                Space Mission</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main2">
+    <div class="text">
+      <h1>Where the world does markets</h1>
+      <h3>
+        Join 100 million traders and investors taking the future into their
+        own hands.
+      </h3>
+    </div>
+    <div class="video-wrapper">
+      <video src="./assets/video/main2video-laptop.mp4" class="loop-video" autoplay loop muted playsinline></video>
+    </div>
+    <div>
+      <button class="btn btn-light">Explore features</button>
+    </div>
+  </div>
+
+  <div class="main3">
+    <div class="container-fluid">
+      <div class="row mb-3">
+        <div class="col-12">
+          <h3 class="title fw-bolder">Market Summary &gt;</h3>
+        </div>
+      </div>
+
+      <div class="row gx-4 gy-4">
+        <div class="col-12 col-md-8">
+          <div class="p-4 border border-dark border-opacity-25 rounded-5">
+            <div class="row align-items-center mb-3">
+              <div class="col-auto">
+                <img class="rounded-circle object-fit-cover" style="height: 56px; width: 56px"
+                  src="./assets/img/sp500.png" alt="S&P 500 Logo" />
+              </div>
+              <div class="stock-name col-2 d-flex justify-content-start align-items-center gap-2">
+                <h5 class="fw-bolder mb-0">S&P 500</h5>
+                <button class="btn btn-sm fw-bolder" style="background-color: #f2f2f2">
+                  SPX
+                </button>
+              </div>
+              <div class="col-auto d-flex justify-content-start align-items-center gap-2">
+                <button id="market-status-btn" class="btn btn-sm fw-bolder" style="background-color: #f2f2f2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="#4A4A4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-minus">
+                    <path d="M5 12h14" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="row align-items-baseline">
+              <div class="col-auto col d-flex justify-content-start align-items-center">
+                <h3 class="fw-bolder mb-0" style="font-size: 2rem">
+                  7,386.66
+                </h3>
+              </div>
+              <div class="col-1 d-flex justify-content-start align-items-center">
+                <p class="text-muted fw-semibold mb-0">USD</p>
+              </div>
+              <div class="col d-flex justify-content-start align-items-center">
+                <h5 class="text-danger fw-bolder mb-0">−0.26%</h5>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-12">
+                <div id="tradingview-chart" style="min-height: 400px; width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="p-4 border border-dark border-opacity-25 rounded-5 bg-white text-dark h-100">
+            <div class="row mb-3 align-items-center">
+              <div class="col">
+                <h5 class="fw-bolder mb-0" style="letter-spacing: -0.3px">
+                  Major Indices
+                </h5>
+              </div>
+            </div>
+
+            <div class="watchlist-scroll-container">
+              <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo ndx-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                    100
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center gap-1">
+                      <h6 class="market-title fw-bold mb-0">Nasdaq 100</h6>
+                      <span class="text-warning fw-bold small-text">D</span>
+                    </div>
+                    <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">NDX</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder">
+                    28,891.87
+                    <span class="small-text text-muted fw-normal">POINT</span>
+                  </div>
+                  <div class="text-success fw-bold small">+1.35%</div>
+                </div>
+              </div>
+
+              <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo n225-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                    225
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center gap-1">
+                      <h6 class="market-title fw-bold mb-0">Japan 225</h6>
+                      <span class="text-muted small-text">—</span>
+                    </div>
+                    <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">NI225</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder">
+                    64,217.05
+                    <span class="small-text text-muted fw-normal">JPY</span>
+                  </div>
+                  <div class="text-success fw-bold small">+0.06%</div>
+                </div>
+              </div>
+
+              <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo sse-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 12h20" />
+                      <path d="M12 2v20" />
+                      <path d="m4.93 4.93 14.14 14.14" />
+                      <path d="m4.93 19.07 14.14-14.14" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center gap-1">
+                      <h6 class="market-title fw-bold mb-0">SSE Composite</h6>
+                      <span class="text-warning fw-bold small-text">D</span>
+                      <span class="text-muted small-text">—</span>
+                    </div>
+                    <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">000001</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder">
+                    3,987.0147
+                    <span class="small-text text-muted fw-normal">POINT</span>
+                  </div>
+                  <div class="text-danger fw-bold small">-0.16%</div>
+                </div>
+              </div>
+
+              <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                    40
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center gap-1">
+                      <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                      <span class="text-warning fw-bold small-text">D</span>
+                      <span class="text-muted small-text">—</span>
+                    </div>
+                    <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder">
+                    8,200.80
+                    <span class="small-text text-muted fw-normal">POINT</span>
+                  </div>
+                  <div class="text-success fw-bold small">+0.48%</div>
+                </div>
+              </div>
+
+              <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                    40
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center gap-1">
+                      <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                      <span class="text-warning fw-bold small-text">D</span>
+                      <span class="text-muted small-text">—</span>
+                    </div>
+                    <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder">
+                    8,200.80
+                    <span class="small-text text-muted fw-normal">POINT</span>
+                  </div>
+                  <div class="text-success fw-bold small">+0.48%</div>
+                </div>
+              </div>
+
+              <div class="market-item d-flex align-items-center justify-content-between py-2.5">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                    40
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center gap-1">
+                      <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                      <span class="text-warning fw-bold small-text">D</span>
+                      <span class="text-muted small-text">—</span>
+                    </div>
+                    <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder">
+                    8,200.80
+                    <span class="small-text text-muted fw-normal">POINT</span>
+                  </div>
+                  <div class="text-success fw-bold small">+0.48%</div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-3 border-top mt-2">
+              <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1"
+                style="color: #2b61ff; font-size: 0.9rem">
+                See all major indices
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-4">
+      <div class="row gx-4 gy-4">
+        <div class="col-12 col-md-4">
+          <div class="p-4 border border-dark border-opacity-25 rounded-5">
+            <div>
+              <div class="main3-card d-flex align-items-start gap-2">
+                <img src="./assets/img/s1.png" style="width: 24px; height: 24px; border-radius: 50%" alt="" />
+                <p class="fw-bolder">Crypto Market Cap</p>
+                <span class="main3-btn badge text-dark bg-light font-monospace">TOTAL</span>
+              </div>
+            </div>
+            <div>
+              <div class="fw-bolder">
+                2.17 T
+                <span class="small-text text-muted fw-normal">USD</span>
+              </div>
+              <div class="text-danger fw-bold small">-17.06%</div>
+            </div>
+            <div class="row mt-1">
+              <div style="position: relative; width: 440px; height: 88px">
+                <canvas id="cryptoMarketChart" style="
+                      width: 440px;
+                      height: 88px;
+                      position: absolute;
+                      z-index: 2;
+                      left: 0px;
+                      top: 0px;
+                    " width="583" height="110">
+                </canvas>
+              </div>
+
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            </div>
+
+            <div class="row mt-1 market-item">
+              <div class="fw-bolder">Bitcoin dominance</div>
+              <div class="d-flex gap-4">
+                <div class="col">
+                  <div class="d-flex align-items-center gap-2">
+                    <div style="
+                          background-color: #2b61ff;
+                          height: 8px;
+                          width: 8px;
+                          border-radius: 50%;
+                        "></div>
+                    <span class="text-muted">Bitcoin</span>
+                  </div>
+                  <span class="text-dark">59.19%</span>
+                </div>
+                <div class="col">
+                  <div class="d-flex align-items-center gap-2">
+                    <div style="
+                          background-color: #00c853;
+                          height: 8px;
+                          width: 8px;
+                          border-radius: 50%;
+                        "></div>
+                    <span class="text-muted">Ehterium</span>
+                  </div>
+                  <span class="text-dark">9.33%</span>
+                </div>
+                <div class="col">
+                  <div class="d-flex align-items-center gap-2">
+                    <div style="
+                          background-color: #ff3333;
+                          height: 8px;
+                          width: 8px;
+                          border-radius: 50%;
+                        "></div>
+                    <span class="text-muted">Others</span>
+                  </div>
+                  <span class="text-dark">38.13%</span>
+                </div>
+              </div>
+              <div class="progress-stacked px-0 my-2" style="height: 12px; border-radius: 8px">
+                <div class="progress" role="progressbar" style="width: 59.19%" aria-valuenow="59.19" aria-valuemin="0"
+                  aria-valuemax="100">
+                  <div class="progress-bar" style="background-color: #2b61ff"></div>
+                </div>
+                <div class="progress" role="progressbar" style="width: 9.33%" aria-valuenow="9.33" aria-valuemin="0"
+                  aria-valuemax="100">
+                  <div class="progress-bar bg-success"></div>
+                </div>
+                <div class="progress" role="progressbar" style="width: 31.48%" aria-valuenow="31.48" aria-valuemin="0"
+                  aria-valuemax="100">
+                  <div class="progress-bar bg-danger"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="pt-3 mt-2">
+              <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1"
+                style="color: #2b61ff; font-size: 0.9rem">
+                See all major indices
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="p-4 border border-dark border-opacity-25 rounded-5">
+            <div>
+              <div class="main3-card d-flex align-items-start gap-2">
+                <img src="./assets/img/s2.png" style="width: 24px; height: 24px; border-radius: 50%" alt="" />
+                <p class="fw-bolder">US Dollar Index</p>
+                <span class="main3-btn badge text-dark bg-light font-monospace">DXY</span>
+              </div>
+            </div>
+            <div>
+              <div class="fw-bolder">
+                98.807
+                <span class="small-text text-muted fw-normal">$</span>
+              </div>
+              <div class="text-success fw-bold small">+1.36%</div>
+            </div>
+
+            <div class="row mt-1">
+              <div style="position: relative; width: 440px; height: 88px">
+                <canvas id="usDollarIndex" style="
+                      width: 440px;
+                      height: 88px;
+                      position: absolute;
+                      z-index: 2;
+                      left: 0px;
+                      top: 0px;
+                    " width="583" height="110">
+                </canvas>
+              </div>
+
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="pt-3">
+              <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1"
+                style="color: #2b61ff; font-size: 0.9rem">
+                See all major indices
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="p-4 border border-dark border-opacity-25 rounded-5">
+            <div>
+              <div class="main3-card d-flex align-items-start gap-2">
+                <img src="./assets/img/s3.png" style="width: 24px; height: 24px; border-radius: 50%" alt="" />
+                <p class="fw-bolder">US 10-year yeild</p>
+                <span class="main3-btn badge text-dark bg-light font-monospace">91282CPJ4</span>
+              </div>
+            </div>
+            <div>
+              <div class="fw-bolder">
+                4.473
+                <span class="small-text text-muted fw-normal">%</span>
+              </div>
+              <div class="text-success fw-bold small">+0.52%</div>
+            </div>
+
+            <div class="row mt-1">
+              <div style="position: relative; width: 440px; height: 88px">
+                <canvas id="us10Yield" style="
+                      width: 440px;
+                      height: 88px;
+                      position: absolute;
+                      z-index: 2;
+                      left: 0px;
+                      top: 0px;
+                    " width="583" height="110">
+                </canvas>
+              </div>
+
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="market-item d-flex align-items-center justify-content-between py-2.5 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="market-logo cac-bg d-flex align-items-center justify-content-center text-white fw-bold rounded-circle">
+                  40
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-1">
+                    <h6 class="market-title fw-bold mb-0">CAC 40</h6>
+                    <span class="text-warning fw-bold small-text">D</span>
+                    <span class="text-muted small-text">—</span>
+                  </div>
+                  <span class="badge text-secondary bg-light border px-2 py-1 mt-1 font-monospace">PX1</span>
+                </div>
+              </div>
+              <div class="text-end">
+                <div class="fw-bolder">
+                  8,200.80
+                  <span class="small-text text-muted fw-normal">POINT</span>
+                </div>
+                <div class="text-success fw-bold small">+0.48%</div>
+              </div>
+            </div>
+
+            <div class="pt-3">
+              <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1"
+                style="color: #2b61ff; font-size: 0.9rem">
+                See all major indices
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder">Featured IPOs &gt;</h3>
+        </div>
+      </div>
+
+      <div class="row mt-3 flex-nowrap overflow-x-auto pb-3 custom-ipo-scrollbar">
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Jun 12</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  125.00
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Sep 18</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/stripe.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">STRIPE</p>
+                <span class="text-muted" style="font-size: 14px">Stripe, Inc</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  -
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Oct 9</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/kraken.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">KRAKEN</p>
+                <span class="text-muted" style="font-size: 14px">Payward Inc. (KRAKEN)</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  -
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Oct 16</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/discord.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">DISCORD</p>
+                <span class="text-muted" style="font-size: 14px">Discord Inc.</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  -
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Oct 23</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/anthropic.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">ANTHROPIC</p>
+                <span class="text-muted" style="font-size: 14px">Anthropic PBC</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  -
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Oct 30</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/revolut.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">REVOLUT</p>
+                <span class="text-muted" style="font-size: 14px">Revolut Ltd.</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  -
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Nov 27</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/openai.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">OPENAI</p>
+                <span class="text-muted" style="font-size: 14px">OpenAI</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  -
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">May 15</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/canva.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">CANVA</p>
+                <span class="text-muted" style="font-size: 14px">Canva Pty. Ltd.</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Exchange</span>
+                <div>NASDAQ</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Offer Price</span>
+                <div>
+                  
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder">Community Ideas &gt;</h3>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="ideas d-flex gap-5">
+          <button class="btn">Editor's Pick</button>
+          <button class="btn">Popular</button>
+        </div>
+      </div>
+
+      <div class="row mt-4 gap-4 flex-nowrap overflow-x-auto custom-ipo-scrollbar">
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/c1.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/c2.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            Gold Sheds 30% from Peak, Bitcoin Wipes Out 50%. Why So Serious?
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/c3.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            USNAS100 | PSYCHOLOGY BEHIND A 34% RALLY WITHOUT CORRECTION
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/c1.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/c2.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/c3.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder">Indicators and strategies &gt;</h3>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="ideas d-flex gap-5">
+          <button class="btn">Editor's Pick</button>
+          <button class="btn">Popular</button>
+        </div>
+      </div>
+
+      <div class="row mt-4 gap-4 flex-nowrap overflow-x-auto custom-ipo-scrollbar">
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i1.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            Predictive Breakout Channels | GainzAlgo
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by GainzAlgo</div>
+              <span class="text-muted">Feb 7</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i2.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            Gold Sheds 30% from Peak, Bitcoin Wipes Out 50%. Why So Serious?
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i3.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            USNAS100 | PSYCHOLOGY BEHIND A 34% RALLY WITHOUT CORRECTION
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i1.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i2.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i3.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder text-dark">Top stories &gt;</h3>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="ideas d-flex gap-4">
+          <button class="btn fw-bold p-0 border-0 text-dark" style="font-size: 0.95rem">
+            Editor's Pick
+          </button>
+          <button class="btn fw-bold p-0 border-0 text-muted" style="font-size: 0.95rem">
+            Popular
+          </button>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 gx-4 gy-4 mt-3">
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a1.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">yesterday</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPCX: SpaceX Stock Rockets 20% on Day 1 as Public Company. Guess
+              Who's a Trillionaire?
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a2.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">2 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              GBP/USD: Pound Ticks Above $1.34 After UK Economy Posts Slowdown
+              in April
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a3.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">2 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPCX: SpaceX IPO Nearly Here After $75 Billion Raise Is Locked
+              In. Ready for Liftoff.
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a4.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">2 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              IXIC: Nasdaq Futures Extend Gains After Trump Claim Peace Deal
+              Is Near
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a5.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">3 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              ORCL: Oracle Stock Sinks Over 10% After Mixed Earnings, Heavy
+              Equity Raise
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a6.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">3 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              OpenAI Could Slash Prices in Bid to Grab Bigger Market Share
+              Ahead of Mammoth IPO
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a7.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">3 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPX: S&P 500 Futures Rise After Big Selloff and Highest
+              Inflation in Three Years
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a8.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">4 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              USD/JPY: Dollar Climbs to Fresh Peaks Above ¥160.40. How High
+              Can It Go?
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a9.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">4 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              XAG/USD: Silver Down Nearly 50% from Record as Traders Reassess
+              Haven Demand
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a10.png" class="rounded-circle"
+                style="width: 16px; height: 16px; object-fit: cover" alt="" />
+              <span class="text-muted small">5 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              OpenAI Confidentially Files for IPO. Shares Likely Set for
+              Autumn Trading Debut.
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a11.png" class="rounded-circle"
+                style="width: 16px; height: 16px; object-fit: cover" alt="" />
+              <span class="text-muted small">5 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              Apple Stock Sheds 2% After WWDC Event Fails to Wow Investors
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a12.png" class="rounded-circle"
+                style="width: 16px; height: 16px; object-fit: cover" alt="" />
+              <span class="text-muted small">5 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPX: S&P 500 Futures Rise as Volatility Keeps Traders on Their
+              Toes
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12">
+          <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1"
+            style="color: #2b61ff; font-size: 0.95rem">
+            Keep reading
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12 d-flex gap-3">
+          <img src="./assets/img/s3.png" class="rounded-circle" style="width: 36px; height: 36px" alt="" />
+          <div class="col-12">
+            <h2 class="title fw-bolder">US Stocks&gt;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12">
+          <h3 class="fw-bolder">Community trends</h3>
+        </div>
+      </div>
+
+      <div class="row gx-4 gy-3 mt-2 flex-nowrap overflow-x-auto custom-ipo-scrollbar">
+        <div class="col-12 col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4">
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+            <div class="mt-1">160.95 <span class="text-muted">USD</span></div>
+            <span class="text-danger">-1.68 %</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4">
+            <div class="d-flex gap-3">
+              <img src="./assets/img/rocket-lab--big.svg" style="width: 36px; height: 36px; border-radius: 50%"
+                alt="" />
+              <div>
+                <p class="fw-bolder mb-0">RKLB</p>
+                <span class="text-muted" style="font-size: 14px">Rocket Lab Corportion</span>
+              </div>
+            </div>
+            <div class="mt-1">160.95 <span class="text-muted">USD</span></div>
+            <span class="text-danger">-1.68 %</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4">
+            <div class="d-flex gap-3">
+              <img src="./assets/img/ast-spacemobile--big.svg" style="width: 36px; height: 36px; border-radius: 50%"
+                alt="" />
+              <div>
+                <p class="fw-bolder mb-0">ACTS</p>
+                <span class="text-muted" style="font-size: 14px">ACT Spacemobile</span>
+              </div>
+            </div>
+            <div class="mt-1">160.95 <span class="text-muted">USD</span></div>
+            <span class="text-danger">-1.68 %</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4">
+            <div class="d-flex gap-3">
+              <img src="./assets/img/adobe--big.svg" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">Adobe, Inc</p>
+                <span class="text-muted" style="font-size: 14px">Adobe Inc</span>
+              </div>
+            </div>
+            <div class="mt-1">160.95 <span class="text-muted">USD</span></div>
+            <span class="text-danger">-1.68 %</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 ipo-card-width">
+          <div class="p-3 border rounded-4">
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+            <div class="mt-1">160.95 <span class="text-muted">USD</span></div>
+            <span class="text-danger">-1.68 %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder">Trade ideas&gt;</h3>
+        </div>
+      </div>
+
+      <div class="row mt-4 gap-4 flex-nowrap overflow-x-auto custom-ipo-scrollbar">
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i1.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="title fw-bolder mt-2" style="font-size: 18px">
+            Predictive Breakout Channels | GainzAlgo
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by GainzAlgo</div>
+              <span class="text-muted">Feb 7</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i2.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            Gold Sheds 30% from Peak, Bitcoin Wipes Out 50%. Why So Serious?
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i3.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            USNAS100 | PSYCHOLOGY BEHIND A 34% RALLY WITHOUT CORRECTION
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i1.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i2.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 ipo-card-width market-item">
+          <div class="border border-dark border-opacity-25 rounded-3">
+            <img src="./assets/img/i3.png" style="width: 453px; height: 255px" alt="" />
+          </div>
+          <div class="fw-bolder mt-2" style="font-size: 18px">
+            SpaceX IPO to Mint First-Ever Trillionaire. And More Wild Stuff.
+          </div>
+          <p class="card-text text-truncate">
+            This is a very long text inside the card paragraph that will
+            easily overflow the container boundaries.
+          </p>
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div>
+              <div>by TradingView</div>
+              <span class="text-muted">June 12</span>
+            </div>
+            <div class="ideas d-flex gap-2 align-items-center">
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-square-text-icon lucide-message-square-text">
+                  <path
+                    d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                  <path d="M7 11h10" />
+                  <path d="M7 15h6" />
+                  <path d="M7 7h8" />
+                </svg><span> 15</span>
+              </button>
+              <button class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-rocket-icon lucide-rocket">
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
+                </svg><span> 164</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 text-dark">
+      <div class="row gx-5 gy-5">
+        <div class="col-12 col-md-6">
+          <h4 class="title fw-bolder mb-3 text-dark">
+            Highest volume stocks &gt;
+          </h4>
+
+          <div class="row row-cols-1 row-cols-sm-2 gx-4 gy-3">
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-dark d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-size: 0.8rem;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/t1.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">SpaceX</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">SPCX</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">160.95</div>
+                  <div class="text-muted small">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-danger d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y3.webp" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Tesla, Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">TSLA</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">406.43</div>
+                  <div class="text-success fw-bold small">+1.82%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-success d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y4.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Sandisk</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">SND</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">205.19</div>
+                  <div class="text-success fw-bold small">+0.16%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-primary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y5.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Micron Tech</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">MU</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">981.61</div>
+                  <div class="text-danger fw-bold small">-1.43%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-danger d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y2.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Intel Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace"></span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">406.43</div>
+                  <div class="text-success fw-bold small">+1.82%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-danger d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y1.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">NVIDIA Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">NVDA</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">986.43</div>
+                  <div class="text-success fw-bold small">+1.82%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3">
+            <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1 small"
+              style="color: #2b61ff">
+              See all most actively traded stocks &gt;
+            </a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h4 class="title fw-bolder mb-3 text-dark">
+            Most volatile stocks &gt;
+          </h4>
+
+          <div class="row row-cols-1 row-cols-sm-2 gx-4 gy-3">
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-secondary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    P
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Pop Culture</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CPOP</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">0.1950</div>
+                  <div class="text-danger fw-bold small">-81.43%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-dark d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    TV
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">FreeCast, Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CAST</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">1.55</div>
+                  <div class="text-success fw-bold small">+140.68%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-light border d-flex align-items-center justify-content-center text-dark rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                      ">
+                    C
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Cuprina Hold.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CUPR</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">3.97</div>
+                  <div class="text-success fw-bold small">+64.73%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-light border d-flex align-items-center justify-content-center text-dark rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                      ">
+                    C
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Cuprina Hold.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CUPR</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">3.97</div>
+                  <div class="text-success fw-bold small">+64.73%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-secondary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    P
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Pop Culture</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CPOP</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">0.1950</div>
+                  <div class="text-danger fw-bold small">-81.43%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-secondary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    P
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Pop Culture</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CPOP</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder text-dark">0.1950</div>
+                  <div class="text-danger fw-bold small">-81.43%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3">
+            <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1 small"
+              style="color: #2b61ff">
+              See all stocks with biggest price changes &gt;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 text-dark">
+      <div class="row gx-5 gy-5">
+        <div class="col-12 col-md-6">
+          <h4 class="title fw-bolder mb-3 text-dark">Stock gainers&gt;</h4>
+
+          <div class="row row-cols-1 gx-4 gy-3">
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-dark d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-size: 0.8rem;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/t1.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">SpaceX</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">SPCX</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-success">+160.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-danger d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y3.webp" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Tesla, Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">TSLA</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    78.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-success">+180.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-success d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y4.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Sandisk</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">SND</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    1658.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-success">+79.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-primary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y5.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Micron Tech</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">MU</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-success">+59.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-danger d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y2.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Intel Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace"></span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-success">+36.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-danger d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: 900;
+                        flex-shrink: 0;
+                      ">
+                    <img src="./assets/img/y1.png" style="width: 36px; height: 36px" class="rounded-circle" alt="" />
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">NVIDIA Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">NVDA</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-success">+10.95%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3">
+            <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1 small"
+              style="color: #2b61ff">
+              See all most actively traded stocks &gt;
+            </a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h4 class="title fw-bolder mb-3 text-dark">Stock losers&gt;</h4>
+
+          <div class="row row-cols-1 gx-4 gy-3">
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-secondary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    P
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Pop Culture</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CPOP</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-danger">-81.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-dark d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    TV
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">FreeCast, Inc.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CAST</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-danger">-79.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-light border d-flex align-items-center justify-content-center text-dark rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                      ">
+                    C
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Cuprina Hold.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CUPR</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-danger">-69.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-light border d-flex align-items-center justify-content-center text-dark rounded-circle"
+                    style="
+                        width: 36px;
+                        height: 36px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                      ">
+                    C
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Cuprina Hold.</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CUPR</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-danger">-54.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-secondary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    P
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Pop Culture</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CPOP</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-danger">-25.95%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col market-item">
+              <div class="d-flex align-items-center justify-content-between p-2 rounded-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                    class="market-logo bg-secondary d-flex align-items-center justify-content-center text-white rounded-circle"
+                    style="width: 36px; height: 36px; flex-shrink: 0">
+                    P
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0 text-dark">Pop Culture</h6>
+                    <span class="badge text-secondary bg-light border px-1.5 py-0.5 mt-1 font-monospace">CPOP</span>
+                  </div>
+                </div>
+                <div class="text-start">
+                  <div class="fw-bolder text-dark">
+                    406.43 <span class="text-muted fw-bold small">USD</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bolder btn btn-danger">-19.95%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3">
+            <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1 small"
+              style="color: #2b61ff">
+              See all stocks with biggest price changes &gt;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder">Earnings Calender&gt;</h3>
+        </div>
+      </div>
+
+      <div class="row mt-3 flex-nowrap overflow-x-auto pb-3 custom-ipo-scrollbar">
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 ipo-card-width">
+          <div class="p-3 border border-dark border-opacity-25 rounded-4">
+            <div class="mb-3">Today</div>
+            <div class="d-flex gap-3">
+              <img src="./assets/img/t1.png" style="width: 36px; height: 36px; border-radius: 50%" alt="" />
+              <div>
+                <p class="fw-bolder mb-0">SPCX</p>
+                <span class="text-muted" style="font-size: 14px">Space Exploration Technology Corp</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-5">
+              <div>
+                <span class="text-muted" style="font-size: 12px">Actual</span>
+                <div>-</div>
+              </div>
+              <div>
+                <span class="text-muted" style="font-size: 12px">Estimate</span>
+                <div>
+                  0.12
+                  <span class="text-muted" style="font-size: 12px">USD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="title fw-bolder text-dark">US Stocks News &gt;</h3>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="ideas d-flex gap-5">
+          <button class="btn">Editor's Pick</button>
+          <button class="btn">Popular</button>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 gx-4 gy-4 mt-3">
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a1.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">yesterday</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPCX: SpaceX Stock Rockets 20% on Day 1 as Public Company. Guess
+              Who's a Trillionaire?
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a2.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">2 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              GBP/USD: Pound Ticks Above $1.34 After UK Economy Posts Slowdown
+              in April
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a3.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">2 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPCX: SpaceX IPO Nearly Here After $75 Billion Raise Is Locked
+              In. Ready for Liftoff.
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a4.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">2 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              IXIC: Nasdaq Futures Extend Gains After Trump Claim Peace Deal
+              Is Near
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a5.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">3 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              ORCL: Oracle Stock Sinks Over 10% After Mixed Earnings, Heavy
+              Equity Raise
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a6.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">3 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              OpenAI Could Slash Prices in Bid to Grab Bigger Market Share
+              Ahead of Mammoth IPO
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a7.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">3 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPX: S&P 500 Futures Rise After Big Selloff and Highest
+              Inflation in Three Years
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a8.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">4 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              USD/JPY: Dollar Climbs to Fresh Peaks Above ¥160.40. How High
+              Can It Go?
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a9.png" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover"
+                alt="" />
+              <span class="text-muted small">4 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              XAG/USD: Silver Down Nearly 50% from Record as Traders Reassess
+              Haven Demand
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a10.png" class="rounded-circle"
+                style="width: 16px; height: 16px; object-fit: cover" alt="" />
+              <span class="text-muted small">5 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              OpenAI Confidentially Files for IPO. Shares Likely Set for
+              Autumn Trading Debut.
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a11.png" class="rounded-circle"
+                style="width: 16px; height: 16px; object-fit: cover" alt="" />
+              <span class="text-muted small">5 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              Apple Stock Sheds 2% After WWDC Event Fails to Wow Investors
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="market-item p-2.5 h-100 d-flex flex-column justify-content-start">
+            <div class="d-flex align-items-center gap-2">
+              <img src="./assets/img/a12.png" class="rounded-circle"
+                style="width: 16px; height: 16px; object-fit: cover" alt="" />
+              <span class="text-muted small">5 days ago</span>
+              <span class="text-muted small">•</span>
+              <span class="text-muted small">TradingView</span>
+            </div>
+            <div class="mt-2 fw-bold text-dark lh-base">
+              SPX: S&P 500 Futures Rise as Volatility Keeps Traders on Their
+              Toes
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12">
+          <a href="#" class="text-decoration-none fw-bold d-inline-flex align-items-center gap-1"
+            style="color: #2b61ff; font-size: 0.95rem">
+            Keep reading
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer border-top text-dark">
+    <div class="container-fluid">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 gx-5 gy-5 mt-1">
+        <div class="col">
+          <div class="mb-3">
+            <svg width="36" height="28" viewBox="0 0 36 28" xmlns="http://www.w3.org/2000/svg" style="color: black">
+              <path d="M14 22H7V11H0V4h14v18zM28 22h-8l7.5-18h8L28 22z" fill="currentColor"></path>
+              <circle cx="20" cy="8" r="4" fill="currentColor"></circle>
+            </svg>
+            <svg width="147" height="28" viewBox="0 0 147 28" xmlns="http://www.w3.org/2000/svg" style="color: black">
+              <path
+                d="M4.793 22.024h3.702V7.519h4.843V4.02H0v3.5h4.793v14.504zM13.343 22.024h3.474v-6.06c0-2.105 1.09-3.373 2.74-3.373.582 0 1.039.101 1.571.279V9.345a3.886 3.886 0 00-1.166-.152c-1.42 0-2.713.938-3.145 2.18V9.346h-3.474v12.679zM27.796 22.303c1.75 0 3.068-.888 3.652-1.7v1.42h3.474V9.346h-3.474v1.42c-.584-.811-1.902-1.699-3.652-1.699-3.372 0-5.959 3.043-5.959 6.618 0 3.576 2.587 6.619 5.96 6.619zm.736-3.17c-1.928 0-3.196-1.445-3.196-3.448 0-2.004 1.268-3.45 3.196-3.45 1.927 0 3.195 1.446 3.195 3.45 0 2.003-1.268 3.448-3.195 3.448zM43.193 22.303c1.75 0 3.068-.888 3.651-1.7v1.42h3.474V3.007h-3.474v7.76c-.583-.812-1.901-1.7-3.651-1.7-3.373 0-5.96 3.043-5.96 6.618 0 3.576 2.587 6.619 5.96 6.619zm.735-3.17c-1.927 0-3.195-1.445-3.195-3.448 0-2.004 1.268-3.45 3.195-3.45 1.927 0 3.195 1.446 3.195 3.45 0 2.003-1.268 3.448-3.195 3.448zM55.166 7.412a2.213 2.213 0 002.232-2.206A2.213 2.213 0 0055.166 3a2.224 2.224 0 00-2.206 2.206 2.224 2.224 0 002.206 2.206zm-1.724 14.612h3.474V9.49h-3.474v12.533zM59.998 22.024h3.474v-6.187c0-2.435 1.192-3.601 2.815-3.601 1.445 0 2.232 1.116 2.232 2.941v6.847h3.474v-7.43c0-3.296-1.826-5.528-4.894-5.528-1.649 0-2.942.71-3.627 1.724V9.345h-3.474v12.679zM80.833 18.65c-1.75 0-3.22-1.319-3.22-3.246 0-1.952 1.47-3.246 3.22-3.246 1.75 0 3.22 1.294 3.22 3.246 0 1.927-1.47 3.246-3.22 3.246zm-.406 8.85c3.88 0 6.822-1.978 6.822-6.543V9.268h-3.474v1.42C83.09 9.7 81.72 8.99 80.098 8.99c-3.322 0-5.985 2.84-5.985 6.415 0 3.55 2.663 6.39 5.985 6.39 1.623 0 2.992-.735 3.677-1.673v.862c0 2.029-1.344 3.474-3.398 3.474-1.42 0-2.84-.482-3.956-1.572l-1.902 2.586c1.445 1.395 3.702 2.029 5.908 2.029zM94.594 22.024h3.27L105.32 4.02h-4.057l-5.021 12.501L91.145 4.02h-3.981l7.43 18.004zM108.508 7.266a2.213 2.213 0 002.231-2.206 2.213 2.213 0 00-2.231-2.206c-1.192 0-2.207.988-2.207 2.206 0 1.217 1.015 2.206 2.207 2.206zm-1.725 14.758h3.474V9.345h-3.474v12.679zM119.248 22.303c2.662 0 4.691-1.116 5.883-2.84l-2.587-1.927c-.583.887-1.673 1.597-3.271 1.597-1.673 0-3.169-.938-3.372-2.637h9.483c.076-.533.051-.888.051-1.192 0-4.133-2.916-6.238-6.238-6.238-3.854 0-6.669 2.865-6.669 6.618 0 4.007 2.942 6.619 6.72 6.619zm-3.221-8.165c.33-1.547 1.775-2.207 3.069-2.207 1.293 0 2.561.685 2.865 2.207h-5.934zM138.45 22.024h3.449l4.184-12.679h-3.728l-2.383 8.114-2.587-8.114h-2.662l-2.561 8.114-2.409-8.114h-3.703l4.21 12.679h3.448l2.359-7.202 2.383 7.202z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+
+          <div class="mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 525 136" width="100px" height="50px">
+              <path fill="currentColor"
+                d="M479.06 114h-17.81l30.94-71.25H510L479.06 114ZM8 114h45.46v-13.98H22.68V42.1H8V114ZM111.28 88.68a26.42 26.42 0 0 0-26.63-26.43 26.42 26.42 0 1 0 0 52.86 26.42 26.42 0 0 0 26.63-26.43Zm-39.29 0c0-7.8 5.37-13.47 12.66-13.47s12.56 5.67 12.56 13.47c0 7.8-5.27 13.47-12.56 13.47-7.29 0-12.66-5.67-12.66-13.47ZM171.2 88.68a26.42 26.42 0 0 0-26.63-26.43 26.42 26.42 0 1 0 0 52.86 26.42 26.42 0 0 0 26.63-26.43Zm-39.29 0c0-7.8 5.37-13.47 12.66-13.47s12.56 5.67 12.56 13.47c0 7.8-5.27 13.47-12.56 13.47-7.29 0-12.66-5.67-12.66-13.47ZM181.2 114h13.87V90.7l20.66 23.3h17.1l-24.7-27.85 20.05-22.78h-16.7L195.07 82V38.05H181.2V114ZM263.7 114h13.86V75.51h14.28V63.37h-14.28V58.5c0-6.18 2.64-8.6 8.6-8.6 2.24 0 4.06.3 5.68.9V38.56c-2.23-.7-4.96-1.11-8.8-1.11-10.74 0-19.35 6.98-19.35 19.34v6.58h-10.22v12.15h10.22v38.47Zm52.14-67.74c0-4.86-3.95-8.81-8.91-8.81a8.88 8.88 0 0 0-8.81 8.8c0 4.87 4.05 8.81 8.8 8.81a8.84 8.84 0 0 0 8.92-8.8Zm-15.8 67.73h13.87V63.37h-13.87v50.62ZM327.24 114h13.87V89.8c0-8.3 4.36-13.47 10.94-13.47 2.23 0 4.15.4 6.28 1.11V63.37c-1.72-.5-3.24-.61-4.66-.61-5.67 0-10.84 3.75-12.56 8.7v-8.1h-13.87V114ZM402.35 98.6c0-8.8-5.57-13.26-14.68-15.7l-4.76-1.4c-4.25-1.12-4.96-2.84-4.96-4.36 0-2.33 2.63-3.45 5.06-3.45 3.34 0 6.28 1.52 8.6 4.46l9.12-7.4c-3.85-5.56-9.82-8.5-17.52-8.5-10.73 0-18.83 5.98-19.03 15.3-.2 7.79 4.65 13.76 13.97 16.2l3.75.9c5.56 1.52 6.78 2.74 6.78 4.86 0 2.53-2.73 3.65-5.57 3.65-4.86 0-9.11-2.13-11.34-5.87l-9.52 8.1c4.36 6.58 11.95 9.72 20.86 9.72 10.83 0 19.24-6.69 19.24-16.5ZM444.9 113.49v-12.25c-1.62.6-3.45.9-5.67.9-5.98 0-8.61-2.42-8.61-8.6V75.52h14.28V63.37h-14.28V49.29h-13.87v14.08h-10.23v12.15h10.23v20.75c0 12.36 8.6 18.33 19.34 18.33 3.85 0 6.58-.4 8.8-1.11Z">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 525 134" width="100px" height="50px">
+              <path fill="currentColor"
+                d="M20.89 90.5h14.78V32.57h19.34V18.6H1.75v13.98H20.9v57.91ZM62.97 90.5h13.87V65.78c0-9.72 4.86-14.38 11.24-14.38 5.77 0 8.9 4.45 8.9 11.74V90.5h13.88V60.83c0-13.17-7.3-22.08-19.54-22.08-6.58 0-11.85 2.84-14.48 6.89V14.55H62.97V90.5ZM120.34 65.18c0 16 11.74 26.43 26.83 26.43 10.63 0 18.83-4.56 23.49-11.34l-10.33-7.7c-2.23 3.44-6.78 6.38-13.06 6.38-6.68 0-12.66-3.75-13.47-10.53h37.87c.2-2.13.2-3.54.2-4.76 0-16.4-11.64-24.9-24.9-24.9-15.4 0-26.63 11.43-26.63 26.42Zm26.22-14.99c5.17 0 10.23 2.84 11.44 8.81h-23.69c1.32-6.17 7.09-8.8 12.25-8.8ZM182.11 90.5H196V65.78c0-9.72 4.85-14.38 11.23-14.38 5.78 0 8.91 4.45 8.91 11.74V90.5h13.88V60.83c0-13.17-7.3-22.08-19.55-22.08-6.58 0-11.84 2.84-14.47 6.89v-5.77H182.1v50.62ZM265.76 90.5h13.88V14.54h-13.88V90.5ZM289.71 65.18c0 16 11.75 26.43 26.84 26.43 10.63 0 18.83-4.56 23.49-11.34l-10.33-7.7c-2.23 3.44-6.79 6.38-13.06 6.38-6.69 0-12.66-3.75-13.47-10.53h37.87c.2-2.13.2-3.54.2-4.76 0-16.4-11.64-24.9-24.9-24.9-15.4 0-26.64 11.43-26.64 26.42Zm26.23-14.99c5.16 0 10.22 2.84 11.44 8.81h-23.7c1.32-6.17 7.1-8.8 12.26-8.8ZM348.25 65.18c0 14.38 10.33 26.43 23.8 26.43 6.98 0 12.35-3.55 14.57-6.79v5.67h13.88V39.87h-13.88v5.67c-2.22-3.24-7.59-6.79-14.58-6.79-13.46 0-23.79 12.05-23.79 26.43Zm39.49 0c0 7.9-5.17 13.77-12.76 13.77-7.6 0-12.76-5.87-12.76-13.77 0-7.9 5.17-13.77 12.76-13.77 7.6 0 12.76 5.87 12.76 13.77ZM413.98 111.65h13.87V84.82c2.33 3.24 7.7 6.79 14.68 6.79 13.47 0 23.8-12.05 23.8-26.43 0-14.38-10.33-26.43-23.8-26.43-6.98 0-12.35 3.55-14.68 6.79v-5.67h-13.87v71.78Zm38.27-46.47c0 7.9-5.16 13.77-12.75 13.77-7.6 0-12.76-5.87-12.76-13.77 0-7.9 5.16-13.77 12.75-13.77 7.6 0 12.76 5.87 12.76 13.77Z">
+              </path>
+              <circle fill="currentColor" cx="487.5" cy="80.4" r="11.25"></circle>
+            </svg>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/instagram-logo-facebook-2-svgrepo-com.svg" style="width: 24px; height: 24px"
+                alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/icons8-x-50.png" style="width: 24px; height: 24px" alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/facebook-svgrepo-com.svg" style="width: 24px; height: 24px" alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/youtube-168-svgrepo-com.svg" style="width: 24px; height: 24px" alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/linkedin-svgrepo-com.svg" style="width: 24px; height: 24px" alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/telegram-svgrepo-com.svg" style="width: 24px; height: 24px" alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/tiktok-svgrepo-com.svg" style="width: 24px; height: 24px" alt="" />
+            </div>
+            <div style="width: 40px; height: 40px" class="market-item d-flex align-items-center justify-content-center">
+              <img src="./assets/img/discord-svgrepo-com.svg" style="width: 24px; height: 24px" alt="" />
+            </div>
+          </div>
+
+          <div style="width: 150px" class="mt-2 mb-3">
+            <select class="form-select border-0 bg-light" aria-label="Language Select">
+              <option selected>English</option>
+              <option value="1">Spanish</option>
+              <option value="2">Hindi</option>
+              <option value="3">Urdu</option>
+            </select>
+          </div>
+
+          <div class="legal-attribution-text text-muted" style="font-size: 11px; line-height: 1.5">
+            <p class="mb-2">
+              Select market data provided by
+              <span class="text-primary cursor-pointer">ICE Data Services.</span>
+            </p>
+            <p class="mb-2">
+              Select reference data provided by FactSet. Copyright © 2026
+              FactSet Research Systems Inc.
+            </p>
+            <p class="mb-2">
+              Copyright © 2026, American Bankers Association. CUSIP Database
+              provided by FactSet Research Systems Inc. All rights reserved.
+            </p>
+            <p class="mb-2">
+              SEC filings and other documents provided by
+              <span class="text-primary cursor-pointer">Quartr.</span>
+            </p>
+            <p class="m-0">© 2026 TradingView, Inc.</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px">
+            <div><span class="text-muted">MORE THAN A PRODUCT</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Supercharts</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">SCREENERS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Stocks</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">ETFs</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Bonds</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Cryptocoins</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">CEX Pair</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">DEX Pair</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Pine</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">HEATMAPS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Stocks</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">ETFs</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Cryptocoins</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">CALENDARS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Economic</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Earnings</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Dividend</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">MORE PRODUCTS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Yield Curves</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Option</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Macro Maps</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">News Flow</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Pine Script</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">APPS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Mobile</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Desktop</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px">
+            <div><span class="text-muted">TOOLS & SUBSCRIPTIONS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Features</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Pricing</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Market data</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Gift plans</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">TRADING</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Overview</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Top brokers</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Brokers comparison</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-1" style="font-size: 12px">
+            <div><span class="text-muted">SPECIAL OFFERS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">CME Group futures</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Eurex futures</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">US stocks bundle</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">ABOUT COMPANY</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Who we are</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Space mission</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Blog</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Careers</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Media kit</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">MERCH</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">TradingView store</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Tarot cards for traders</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">The C63 TradeTime</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">POLICIES & SECURITY</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Terms of Use</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Disclaimer</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Privacy Policy</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Cookies Policy</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Accessibility Statement</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Security tips</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Bug Bounty program</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Status page</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px">
+            <div><span class="text-muted">COMMUNITY</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Social network</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Wall of Love</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Refer a friend</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">House Rules</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Moderators</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">IDEAS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Trading</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Education</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Editors' picks</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">PINE SCRIPT</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Indicators & strategies</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Wizards</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Freelancers</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Paid Spaces</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div style="font-size: 12px">
+            <div><span class="text-muted">BUSINESS SOLUTIONS</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Widgets</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Charting libraries</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Lightweight Charts™</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Advanced Charts</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Trading Platform</h6>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4" style="font-size: 12px">
+            <div><span class="text-muted">GROWTH OPPORTUNITIES</span></div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Advertising</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Brokerage integration</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Partner program</h6>
+              </a>
+            </div>
+            <div class="mt-1">
+              <a href="#" class="market-item">
+                <h6 class="m-0">Education program</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img class="w-100 mt-5" src="./assets/img/look-first-light.74b5bba06f657157cdb4.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script src="./js/chart.js"></script>
+</body>
+
+</html>
